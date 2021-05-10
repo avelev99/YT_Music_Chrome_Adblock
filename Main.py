@@ -1,3 +1,4 @@
+from winreg import HKEY_PERFORMANCE_DATA
 from Utils import *
 import time
 from selenium import webdriver
@@ -27,5 +28,8 @@ def Login():
 
 def text_input(text):
     action = ActionChains(driver)
-    
+    action.send_keys(text)
+    action.perform()
 
+def tabkey():
+    driver.find_element(By.NAME, "q").send_keys(Keys.TAB)
