@@ -1,3 +1,4 @@
+import gc
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -7,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from Utils import *
 
+collected = gc.collect()
 
 driver = webdriver.Chrome()
 driver.get("https://music.youtube.com/")
@@ -27,3 +29,10 @@ def ins_text(text):
     ActionChains(driver).send_keys(Keys.TAB * 2).perform()"""
 
 login()
+
+collected = gc.collect()
+
+print("Garbage collection thresholds:",
+                    gc.get_threshold())
+print("Garbage collector: collected",
+            "%d objects." % collected)
