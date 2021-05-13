@@ -26,7 +26,7 @@ def login():
     next()
     wait.until(EC.visibility_of_element_located((By.ID, 'password')))
     time.sleep(1)
-    ins_text('*******************')
+    ins_text('EvtinaGoogleParola%')
     next()
     wait.until(EC.visibility_of_element_located((By.ID, 'left-content')))
 
